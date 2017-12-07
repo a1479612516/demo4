@@ -22,15 +22,16 @@
 	<script>
 	var div = document.querySelector('div')
 	div.addEventListener('touchstart',function(e){
-		e.preventDefault()
-		this.style.display = 'none'
+		// e.preventDefault()
+		// this.style.display = 'none'
+		div.innerHTML = e.touches.length
 	})
-	// div.addEventListener('touchmove',function(e){
-	// 	console.log(e.targetTouches.length)
-	// })
-	// div.addEventListener('touchend',function(e){
-	// 	console.log(e.changedTouches.length)
-	// })
+	div.addEventListener('touchmove',function(e){
+		div.innerHTML =e.targetTouches.length
+	})
+	div.addEventListener('touchend',function(e){
+		div.innerHTML =e.changedTouches.length
+	})
 	</script>
 </body>
 </html>
