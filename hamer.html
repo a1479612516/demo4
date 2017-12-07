@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,inital-scale=1.0,user-scalable=no">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+	<style>
+		.d{
+			width:200px;
+			height: 100px;
+			background: red;
+		}
+		#btn{
+			margin-top: 200px
+		}
+	</style>
+</head>
+<body>
+	<div id="box">111</div>
+	<button id="btn">dianji</button>
+	<script>
+		var box = document.getElementById('box')
+		var btn = document.getElementById('btn')
+		
+			// Create a manager to manage the element
+			var manager = new Hammer.Manager(box);
+			
+			// Create a recognizer
+			var Tap = new Hammer.Tap({
+			  taps: 1
+			});
+			
+			// Add the recognizer to the manager
+			manager.add(Tap);
+			console.log(manager)
+
+			manager.on('tap',function(){
+			console.log(1)
+			box.classList.toggle('d')
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,inital-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="css/touch1.css">
+</head>
+<body>
+	<div class="box">
+		<div class="container">
+			<div>11</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+	</div>
+	<script>
+	var box = document.querySelector('.box')
+	var con = document.querySelector('.container')
+	var w = innerWidth
+	
+	box.addEventListener('touchstart',function(e){
+		var dis = con.offsetLeft
+		var start = e.targetTouches[0].pageX
+		box.addEventListener('touchmove',function(e){
+			end= e.targetTouches[0].pageX - start
+
+			con.style.left = dis+end+'px'
+		})
+		box.addEventListener('touchend',function(){
+			console.log(con.offsetLeft)
+			var n = Math.round(con.offsetLeft/w)
+			
+			con.style.left = n*w+'px'
+		})
+	})
+	</script>
+</body>
+</html>
