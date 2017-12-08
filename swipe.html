@@ -76,10 +76,10 @@
 		box1.style.webkitTransform='scale('+sc+')'
 	})
 	hamer.on('pinchin',function(){
-		if(sc<0){
-			sc=0
+		if(sc>0){
+			sc-=0.1
 		}
-		sc-=0.1
+		
 		box1.style.webkitTransform='scale('+sc+')'
 	})
 	</script>
